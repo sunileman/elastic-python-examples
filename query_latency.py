@@ -1,15 +1,15 @@
 from es_helper import create_es_client
 from time import sleep
 
-
 username = ''
 password = ''
 cloudid = ''
 index_name = ''
 
+# get es object
 es = create_es_client(username, password, cloudid)
 
-# Now you can use the 'es' object to interact with your Elasticsearch instance
+# validate es object
 response = es.info()
 print(response)
 
@@ -33,13 +33,13 @@ def fetch_current_query_time_in_millis(es, index_name):
 
     return query_time_in_millis
 
+
 es = create_es_client(username, password, cloudid)
 
 previous_query_total = 0
 previous_query_time_in_millis = 0
 time_interval = 5
 monitoring = True
-
 
 while monitoring:
     try:
